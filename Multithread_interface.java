@@ -13,11 +13,12 @@ class Process extends Thread
         }
     }
 }
-public class Multithread 
+public class Multithread_abstract 
 {
-    public static void main(String[] args) 
+    public static void main(String[] args) throws InterruptedException
     {
         Process P = new Process();
+        System.out.println(P.isAlive());
         P.start();
         for (int i = 1; i < 13; i++) 
         {
@@ -26,8 +27,10 @@ public class Multithread
                 Thread.sleep(500);
             } catch (InterruptedException e) {
                 System.out.println(e);
-            }    
-        }       
-
+            }
+            System.out.println(P.isAlive());
+        }
+        Thread.sleep(2000);
+        System.out.println(P.isAlive());
     }    
 }
